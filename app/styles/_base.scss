@@ -1,0 +1,32 @@
+//color palette
+$color-purple-dark: #301a44;
+$color-purple-light: #543c6a;
+$color-purple-lighter: #a592b6;
+$color-purple-darker: #140522;
+//color variables
+$color-page-background: $color-purple-darker;
+$color-text-default: $color-purple-light;
+$color-text-highlight: $color-purple-lighter;
+$color-text-hover-default: $color-purple-dark;
+$color-text-hover-highlight: $color-purple-darker;
+$color-link-hover: #fff;
+$color-border: $color-purple-light;
+
+
+body{
+  background-color: $color-page-background;
+  color: $color-text-default;
+  font-family: Arial, sans-serif;
+  & > section { //fix readable width for container
+    max-width: 38em;
+    margin: 0 auto; //center align horizontally
+  }
+}
+
+a{
+  text-decoration: none;
+  color: $color-text-highlight;
+  &:hover, &:hover > h1 {
+    color: #fff;
+  }
+}

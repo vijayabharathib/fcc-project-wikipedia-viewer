@@ -1,0 +1,111 @@
+
+//style wiki logo at the top
+.title {
+  font-size: 300%; //make it big
+  display: block;
+  text-align: center;
+}
+
+/**
+  * keep the random button, input box and search button
+  * horizontal when the window is larger than 512px
+  * align them in a column on smaller screens
+  */
+.lookup {
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+  min-height: 5em;
+  align-items: center;
+  justify-content: space-around;
+  @media(min-width: 512px){
+    flex-direction: row;
+  }
+
+  a{ //style random icon link
+    order:2; //last icon on smaller screens
+    @media(min-width: 512px){
+      order: 0; //first icon on larger screens
+    }
+  }
+}
+
+#search,#random{
+  cursor: pointer;
+  color: $color-text-default;
+  &:hover {
+    color: $color-link-hover;
+  }
+}
+
+#search{
+  order: 1; //place search button between text and random
+  @media(min-width: 512px){
+    order: 2; //place text at the end, next to text box
+  }
+}
+
+.query { //input box
+  display: inline-block;
+  order: 0; //first one on small sccreens
+  //width: 90%;
+  margin: 0 1em;
+  font-size: .7em;
+  color: $color-link-hover;
+  background-color: $color-purple-dark;
+  border: none;
+  padding: .2em 1em;
+  border-radius: .5em;
+  outline: none;
+  transition: background-color 300ms ease-in,
+    color 300ms ease-out;
+  &:focus {
+    background-color: $color-link-hover;
+    color: $color-purple-dark;
+  }
+  @media(min-width: 512px){
+    width: 90%;
+    font-size: 1em; //make it a bit large on larger screens
+    order: 1; //put it squarely in the middle on large screens
+    border-radius: 1em;
+  }
+}
+
+.result{
+  margin-top: 1em;
+}
+
+article {
+    margin: 1.5em auto;
+    padding: .5em;
+    border-left: 4px solid $color-purple-light;
+    /**
+      * make the transition to hover state smooth
+      * transition background,color,border-radius
+      * leave all others untouched
+      */
+    transition: background-color 300ms ease-in,
+    color 300ms ease-out, border-radius 300ms ease;
+    &:hover{
+      color: $color-purple-dark;
+      background-color: $color-purple-lighter;
+      border-radius: 1em;
+      a{
+        color: $color-purple-darker;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+    }
+
+    h2 {
+      margin: 0 .2em .5em;
+      font-family: Georgia, serif;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
